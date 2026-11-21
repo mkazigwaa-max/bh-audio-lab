@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: bh-audio-lab
+    runtime: static
+    buildCommand: "echo ok"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /support
+        destination: /support.html

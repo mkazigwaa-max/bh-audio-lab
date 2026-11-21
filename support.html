@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — BH Audio Lab</title>
+<style>
+  :root{--black:#070708;--plate:#26282c;--plate2:#2e3034;--edge:#3a3c40;--wg:#d8cdb2;--wg-dim:#a89c80;--ink:#ece9e2;--soft:#b3ac9c;--gold:#c9a227;--cream:#efe6cf}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--black);color:var(--ink);font-family:'Courier New',monospace}
+  .brushed{background:repeating-linear-gradient(90deg, rgba(255,255,255,.014) 0 2px, transparent 2px 4px),linear-gradient(160deg, var(--plate2), var(--plate) 55%, #222428)}
+  header{display:flex;align-items:center;gap:16px;padding:14px 28px;border-bottom:1px solid var(--edge);background:linear-gradient(180deg,#1b1c1f,#121315)}
+  header img{width:40px;height:40px;object-fit:cover;border:1px solid var(--wg-dim);border-radius:6px}
+  .brand{font-weight:bold;letter-spacing:.22em;font-size:15px}
+  .brand small{display:block;letter-spacing:.3em;font-size:9px;color:var(--soft);font-weight:normal}
+  nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+  nav a{color:var(--soft);text-decoration:none;font-size:12px;letter-spacing:.18em}
+  .dl{background:var(--wg);color:#141310;padding:10px 18px;border-radius:3px;font-weight:bold;letter-spacing:.14em}
+  .plate{max-width:880px;margin:34px auto;padding:50px 48px 42px;border:1px solid var(--edge);border-radius:18px;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06)}
+  .screw{position:absolute;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #f0e7cd, var(--wg) 45%, #8d8163 90%);box-shadow:inset 0 -1px 2px rgba(0,0,0,.55)}
+  .screw::after{content:"";position:absolute;left:1.5px;right:1.5px;top:6.5px;height:2px;background:rgba(20,18,12,.65);transform:rotate(38deg)}
+  .s-tl{top:16px;left:16px}.s-tr{top:16px;right:16px}.s-bl{bottom:16px;left:16px}.s-br{bottom:16px;right:16px}
+  .kicker{color:var(--wg);letter-spacing:.34em;font-size:11px;text-align:center}
+  h1{font-size:clamp(28px,4vw,44px);line-height:1.15;text-align:center;margin:18px auto 4px;max-width:15ch}
+  h1 em{font-style:normal;color:var(--wg)}
+  .sub{text-align:center;color:#cfc9ba;max-width:54ch;margin:14px auto 0;font-size:15px;line-height:1.7;font-family:Georgia,serif}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px 0 18px}
+  .tier{border:1px solid var(--edge);border-radius:10px;padding:22px 10px 16px;text-align:center;background:linear-gradient(180deg,#1d1e21,#141517)}
+  .tier.hot{border-color:var(--wg);background:linear-gradient(180deg,#33342f,#22241f);box-shadow:0 0 34px rgba(216,205,178,.14)}
+  .tier b{display:block;font-size:30px;color:var(--cream);letter-spacing:.04em}
+  .tier span{color:var(--soft);font-size:11px;letter-spacing:.14em;line-height:1.5;display:block;margin-top:6px}
+  .cta{display:block;text-align:center;background:var(--wg);color:#141310;padding:16px;border-radius:3px;font-weight:bold;letter-spacing:.16em;font-size:14px;text-decoration:none}
+  .fine{text-align:center;color:var(--soft);font-size:12px;margin-top:14px;line-height:1.6;font-family:Georgia,serif}
+  .fine b{color:var(--ink)}
+  footer{border-top:1px solid var(--edge);padding:22px 28px;display:flex;gap:14px;align-items:center;color:var(--soft);font-size:11px;letter-spacing:.22em;max-width:880px;margin:0 auto}
+  footer img{width:26px;height:26px;object-fit:cover;border-radius:4px;border:1px solid var(--wg-dim)}
+  footer .r{margin-left:auto}
+  @media(max-width:640px){.tiers{grid-template-columns:1fr}.plate{padding:38px 20px 30px;margin:16px 10px}nav a{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <img src="monogram.jpg" alt="BH monogram">
+  <div class="brand">BH AUDIO LAB<small>THE BH STANDARD</small></div>
+  <nav><a href="index.html">CATALOG</a><a href="index.html#philosophy">PHILOSOPHY</a><a class="dl" href="index.html">DOWNLOAD FREE</a></nav>
+</header>
+
+<section class="plate brushed">
+  <span class="screw s-tl"></span><span class="screw s-tr"></span><span class="screw s-bl"></span><span class="screw s-br"></span>
+  <div class="kicker">SUPPORT</div>
+  <h1>Support <em>independent plugins.</em></h1>
+  <p class="sub">We're a small independent lab. Every BH Audio Lab plugin takes months of real work: studying hardware, listening, tweaking every knob until it feels right. If BH Vox earned a place in your sessions, a small contribution helps us build the next one.</p>
+  <div class="tiers">
+    <div class="tier"><b>€5</b><span>A COFFEE FOR<br>THE LAB</span></div>
+    <div class="tier hot"><b>€10</b><span>FUEL FOR THE<br>NEXT PLUGIN</span></div>
+    <div class="tier"><b>€20</b><span>YOU'RE<br>A LEGEND</span></div>
+  </div>
+  <a class="cta" href="#">SUPPORT WITH €10</a>
+  <p class="fine">Secure checkout by Gumroad · card, Apple Pay, Google Pay or PayPal.<br>BH Vox stays <b>free forever</b> — supporting us is optional.</p>
+</section>
+
+<footer>
+  <img src="monogram.jpg" alt="">
+  <span>BH AUDIO LAB</span><span>·</span><span>MODEL BHV-1</span>
+  <span class="r">SER BHV-0001</span>
+</footer>
+</body>
+</html>

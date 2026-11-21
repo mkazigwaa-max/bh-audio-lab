@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BH Audio Lab — BH VOX · Model BHV-1</title>
+<style>
+  :root{
+    --black:#070708; --plate:#26282c; --plate2:#2e3034; --edge:#3a3c40;
+    --wg:#d8cdb2; --wg-dim:#a89c80; --ink:#ece9e2; --soft:#b3ac9c; --gold:#c9a227; --cream:#efe6cf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--black);color:var(--ink);font-family:'Courier New',monospace;-webkit-font-smoothing:antialiased}
+  .brushed{background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.014) 0 2px, transparent 2px 4px),
+    linear-gradient(160deg, var(--plate2), var(--plate) 55%, #222428)}
+  /* header — a rail off the panel */
+  header{display:flex;align-items:center;gap:16px;padding:14px 28px;border-bottom:1px solid var(--edge);
+    background:linear-gradient(180deg,#1b1c1f,#121315);position:sticky;top:0;z-index:5}
+  header img{width:40px;height:40px;object-fit:cover;border:1px solid var(--wg-dim);border-radius:6px}
+  .brand{font-weight:bold;letter-spacing:.22em;font-size:15px}
+  .brand small{display:block;letter-spacing:.3em;font-size:9px;color:var(--soft);font-weight:normal}
+  nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+  nav a{color:var(--soft);text-decoration:none;font-size:12px;letter-spacing:.18em}
+  nav a:hover{color:var(--wg)}
+  .dl{background:var(--wg);color:#141310;padding:10px 18px;border-radius:3px;font-weight:bold;letter-spacing:.14em}
+  /* the plate */
+  .plate{max-width:1180px;margin:34px auto;padding:54px 54px 44px;border:1px solid var(--edge);border-radius:18px;position:relative;
+    box-shadow:0 40px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06)}
+  .screw{position:absolute;width:15px;height:15px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #f0e7cd, var(--wg) 45%, #8d8163 90%);
+    box-shadow:inset 0 -1px 2px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.5)}
+  .screw::after{content:"";position:absolute;left:1.5px;right:1.5px;top:6.5px;height:2px;background:rgba(20,18,12,.65);transform:rotate(38deg)}
+  .s-tl{top:16px;left:16px}.s-tr{top:16px;right:16px}.s-bl{bottom:16px;left:16px}.s-br{bottom:16px;right:16px}
+  .kicker{color:var(--wg);letter-spacing:.34em;font-size:11px;text-align:center}
+  .kicker::before,.kicker::after{content:"———";color:var(--wg-dim);margin:0 12px;letter-spacing:0}
+  h1{font-size:clamp(30px,4.6vw,54px);line-height:1.12;text-align:center;margin:20px auto 6px;max-width:16ch;letter-spacing:.01em}
+  h1 em{font-style:normal;color:var(--wg)}
+  .sub{text-align:center;color:var(--soft);max-width:56ch;margin:14px auto 0;font-size:15px;line-height:1.65;font-family:Georgia,serif;letter-spacing:.01em}
+  .panelwrap{max-width:760px;margin:38px auto 8px;border-radius:14px;overflow:hidden;border:1px solid #45464a;
+    box-shadow:0 30px 60px rgba(0,0,0,.65), 0 0 0 6px #1d1e20, 0 0 90px rgba(216,205,178,.10)}
+  .panelwrap img{width:100%;display:block}
+  .ctas{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+  .btn{padding:14px 26px;border-radius:3px;letter-spacing:.16em;font-size:13px;font-weight:bold;text-decoration:none}
+  .btn-a{background:var(--wg);color:#141310}
+  .btn-b{border:1px solid var(--wg-dim);color:var(--ink)}
+  /* spec strip — engraved module tiles */
+  .specs{max-width:1180px;margin:0 auto 8px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 4px}
+  .spec{border:1px solid var(--edge);border-radius:10px;padding:18px 10px 14px;text-align:center;background:linear-gradient(180deg,#1d1e21,#141517)}
+  .spec b{display:block;color:var(--wg);font-size:19px;letter-spacing:.12em}
+  .spec span{color:var(--soft);font-size:10px;letter-spacing:.26em}
+  .gauge{height:5px;background:#101112;border-radius:3px;margin:12px 14px 2px;position:relative;box-shadow:inset 0 1px 2px #000}
+  .gauge i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--wg-dim),var(--wg));border-radius:3px}
+  /* modules */
+  .mods{max-width:1180px;margin:26px auto 60px;display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 4px}
+  .mod{border:1px solid var(--edge);border-radius:12px;padding:28px;background:linear-gradient(165deg,#232427,#17181a)}
+  .mod h2{font-size:13px;letter-spacing:.3em;color:var(--wg);margin-bottom:14px}
+  .mod p{font-family:Georgia,serif;color:#cfc9ba;line-height:1.7;font-size:15px}
+  .mod .price{font-size:30px;color:var(--cream);letter-spacing:.06em;margin:6px 0 2px}
+  footer{border-top:1px solid var(--edge);padding:22px 28px;display:flex;gap:14px;align-items:center;color:var(--soft);font-size:11px;letter-spacing:.22em}
+  footer img{width:26px;height:26px;object-fit:cover;border-radius:4px;border:1px solid var(--wg-dim)}
+  footer .r{margin-left:auto}
+  @media(max-width:760px){.specs{grid-template-columns:repeat(2,1fr)}.mods{grid-template-columns:1fr}.plate{padding:38px 20px 30px;margin:16px 10px}nav a{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <img src="monogram.jpg" alt="BH monogram">
+  <div class="brand">BH AUDIO LAB<small>THE BH STANDARD</small></div>
+  <nav>
+    <a href="#catalog">CATALOG</a><a href="#philosophy">PHILOSOPHY</a><a href="#support">SUPPORT</a>
+    <a class="dl" href="#catalog">DOWNLOAD FREE</a>
+  </nav>
+</header>
+
+<section class="plate brushed">
+  <span class="screw s-tl"></span><span class="screw s-tr"></span><span class="screw s-bl"></span><span class="screw s-br"></span>
+  <div class="kicker">PROFESSIONAL AUDIO PLUGINS</div>
+  <h1>Plugins built from <em>real analog hardware.</em></h1>
+  <p class="sub">BH Audio Lab studies, measures and recreates the behavior of iconic analog gear — so every plugin feels like the real thing, not an approximation.</p>
+  <div class="panelwrap"><img src="panel.webp" alt="BH VOX — Model BHV-1 — layout v14 final"></div>
+  <div class="ctas">
+    <a class="btn btn-a" href="#catalog">DOWNLOAD — FREE FOREVER</a>
+    <a class="btn btn-b" href="#philosophy">OUR PHILOSOPHY</a>
+  </div>
+</section>
+
+<section class="specs">
+  <div class="spec"><span>MODEL</span><b>BHV-1</b><div class="gauge"><i style="width:100%"></i></div></div>
+  <div class="spec"><span>ENGINE</span><b>BH ENGINE</b><div class="gauge"><i style="width:92%"></i></div></div>
+  <div class="spec"><span>LATENCY</span><b>ZERO</b><div class="gauge"><i style="width:98%"></i></div></div>
+  <div class="spec"><span>FORMATS</span><b>VST3 · AU</b><div class="gauge"><i style="width:88%"></i></div></div>
+</section>
+
+<section class="mods">
+  <div class="mod" id="catalog">
+    <h2>CATALOG — 01</h2>
+    <p><b style="color:var(--ink)">BH VOX</b> — the vocal channel processor. Dynamics, EQ, color and age, modeled control by control from the hardware, with the BH ENGINE at its center.</p>
+    <div class="price">FREE</div>
+    <p style="color:var(--soft);font-size:13px">Windows · macOS · VST3 / AU — free forever.</p>
+  </div>
+  <div class="mod" id="philosophy">
+    <h2>PHILOSOPHY</h2>
+    <p>One essential sound per control, each with its own identity. Hold a knob and it rises to meet your hand; the panel never moves. Nothing approximated, nothing decorative — the hardware, measured until it feels right.</p>
+    <div class="price" style="font-size:19px;letter-spacing:.2em">THE BH STANDARD</div>
+    <p style="color:var(--soft);font-size:13px" id="support">Support the lab if BH VOX earned its place in your sessions — the plugin stays free either way.</p>
+  </div>
+</section>
+
+<footer>
+  <img src="monogram.jpg" alt="">
+  <span>BH AUDIO LAB</span><span>·</span><span>MODEL BHV-1</span>
+  <span class="r">SER BHV-0001</span>
+</footer>
+</body>
+</html>
