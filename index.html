@@ -16,15 +16,27 @@
   .brushed{background:
     repeating-linear-gradient(90deg, rgba(255,255,255,.014) 0 2px, transparent 2px 4px),
     linear-gradient(160deg, var(--plate2), var(--plate) 55%, #222428)}
-  header{position:relative;z-index:3;display:flex;align-items:center;gap:16px;padding:14px 28px;border-bottom:1px solid var(--edge);
-    background:linear-gradient(180deg,#1b1c1f,#121315)}
-  header img{width:40px;height:40px;object-fit:cover;border:1px solid var(--wg-dim);border-radius:6px}
-  .brand{font-weight:bold;letter-spacing:.22em;font-size:15px}
-  .brand small{display:block;letter-spacing:.3em;font-size:9px;color:var(--soft);font-weight:normal}
-  nav{margin-left:auto;display:flex;gap:26px;align-items:center}
-  nav a{color:var(--soft);text-decoration:none;font-size:12px;letter-spacing:.18em}
-  nav a:hover{color:var(--wg)}
-  .dl{background:var(--wg);color:#141310;padding:10px 18px;border-radius:3px;font-weight:bold;letter-spacing:.14em}
+  /* HEADER — H-A × H-B MIX (owner pick 2026-11-21): liquid-glass rail over a shader crown */
+  header{position:relative;z-index:3;padding:26px 16px 6px;text-align:center}
+  .crown{position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:560px;height:230px;pointer-events:none;
+    background:radial-gradient(50% 60% at 50% 30%, rgba(216,205,178,.32), transparent 65%),
+               radial-gradient(35% 45% at 78% 80%, rgba(201,162,39,.20), transparent 60%)}
+  .rail{position:relative;max-width:760px;margin:0 auto;padding:18px 20px 14px;border-radius:20px;
+    background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.04) 50%, rgba(216,205,178,.08));
+    border:1px solid rgba(232,220,190,.45);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.4), inset 0 -12px 24px rgba(255,255,255,.05), 0 22px 44px rgba(0,0,0,.55)}
+  .rail::before{content:"";position:absolute;inset:0;border-radius:20px;pointer-events:none;
+    background:radial-gradient(60% 90% at 50% -10%, rgba(255,246,220,.16), transparent 60%)}
+  .rail .chrome{width:56px;height:56px;margin:0 auto 10px}
+  .rail .brand{font-size:17px}
+  .rail nav{margin-top:13px;padding-top:11px;border-top:1px solid rgba(232,220,190,.18);display:flex;gap:15px;justify-content:center;align-items:center}
+  .rail nav a{color:var(--soft);text-decoration:none;font-size:11px;letter-spacing:.16em}
+  .rail nav a:hover{color:var(--wg)}
+  .rail nav .dot{color:var(--wg-dim);font-size:11px}
+  .rail nav .go{background:linear-gradient(180deg,#efe6cf,var(--wg));color:#141310;border-radius:10px;padding:7px 12px;font-weight:bold}
+  .chrometext{background:linear-gradient(100deg,#f4ecd6 15%,var(--wg) 38%,#8d8163 55%,var(--cream) 78%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .chrometext small{color:var(--soft);-webkit-text-fill-color:var(--soft)}
   main{position:relative;z-index:2}
   .plate{max-width:1180px;margin:34px auto;padding:54px 54px 44px;border:1px solid var(--edge);border-radius:18px;position:relative;
     box-shadow:0 40px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06)}
@@ -101,12 +113,14 @@
 <body>
 <canvas id="shaderwash"></canvas>
 <header>
-  <img src="monogram.jpg" alt="BH monogram">
-  <div class="brand">BH AUDIO LAB<small>THE BH STANDARD</small></div>
-  <nav>
-    <a href="#catalog">CATALOG</a><a href="#philosophy">PHILOSOPHY</a><a href="support.html">SUPPORT</a>
-    <a class="dl" href="#download">DOWNLOAD FREE</a>
-  </nav>
+  <div class="crown"></div>
+  <div class="rail">
+    <div class="chrome"><img src="monogram.jpg" alt="BH monogram — liquid chrome"></div>
+    <div class="brand chrometext">BH AUDIO LAB<small>THE BH STANDARD</small></div>
+    <nav>
+      <a href="#catalog">CATALOG</a><span class="dot">·</span><a href="#philosophy">PHILOSOPHY</a><span class="dot">·</span><a href="support.html">SUPPORT</a><span class="dot">·</span><a class="go" href="#download">DOWNLOAD FREE</a>
+    </nav>
+  </div>
 </header>
 
 <main>
