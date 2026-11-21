@@ -103,9 +103,15 @@
   .mod p{font-family:Georgia,serif;color:#cfc9ba;line-height:1.7;font-size:15px}
   .mod .price{font-size:30px;color:var(--cream);letter-spacing:.06em;margin:6px 0 2px}
   /* FOOTER — liquid chrome mark, one clean line */
-  footer{position:relative;z-index:2;border-top:1px solid var(--edge);padding:20px 28px;display:flex;gap:12px;align-items:center;color:var(--soft);font-size:11px;letter-spacing:.22em;white-space:nowrap;overflow:hidden}
-  footer .chrome{width:30px;height:30px;border-radius:7px}
-  footer .r{margin-left:auto}
+  /* FOOTER — F-B · SHADER HORIZON (owner pick 2026-11-21) */
+  footer{position:relative;z-index:2;text-align:center;padding:20px 16px 18px;color:var(--soft);
+    background:linear-gradient(180deg,#0b0b0c, #12100a)}
+  footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+    background:linear-gradient(90deg, transparent, var(--wg) 30%, var(--gold) 55%, var(--wg) 75%, transparent);
+    box-shadow:0 0 18px rgba(216,205,178,.55)}
+  footer .chrome{width:34px;height:34px;margin:0 auto 9px}
+  footer .line{font-size:10px;letter-spacing:.2em;white-space:nowrap}
+  footer .line b{color:var(--ink)}
   @media(max-width:760px){.specs{grid-template-columns:repeat(2,1fr)}.mods{grid-template-columns:1fr}.plate{padding:38px 20px 30px;margin:16px 10px}nav a{display:none}
     footer{font-size:9px;letter-spacing:.14em;padding:16px 14px}.dock .who b{font-size:13px}.dock .go{padding:13px 15px;font-size:12px}}
 </style>
@@ -173,8 +179,7 @@
 
 <footer>
   <div class="chrome"><img src="monogram.jpg" alt=""></div>
-  <span>BH AUDIO LAB</span><span>·</span><span>MODEL BHV-1</span>
-  <span class="r">SER BHV-0001</span>
+  <div class="line"><b>BH AUDIO LAB</b> · MODEL BHV-1 · SER BHV-0001</div>
 </footer>
 
 <script>
